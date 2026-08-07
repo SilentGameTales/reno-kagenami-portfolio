@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
+import VexaGallery from "@/components/VexaGallery";
 
 export const metadata = { title: "VEXA — Music" };
 
@@ -10,6 +11,10 @@ const visuals = [
   ["/images/vexa-black.png", "No Permission"],
   ["/images/vexa-stage.png", "Performance"]
 ];
+
+const showcaseImages = Array.from({ length: 30 }, (_, index) =>
+  `/images/vexa-showcase/vexa-showcase-${String(index + 1).padStart(2, "0")}.png`
+);
 
 const releases = [
   { title: "Soft Warning", cover: "/music/covers/soft-warning.png", audio: "/music/audio/soft-warning.mp3", mood: "Late-night R&B · intimate" },
@@ -91,6 +96,19 @@ export default function MusicPage() {
           <a className="button button-primary" href="https://www.tiktok.com/@silentsynthtales" target="_blank" rel="noreferrer">Watch on TikTok</a>
           <a className="button button-ghost" href="https://www.instagram.com/silentsynthtales" target="_blank" rel="noreferrer">View Instagram</a>
         </div>
+      </section>
+
+      <section className="section-shell vexa-showcase-section" aria-labelledby="vexa-showcase-title">
+        <div className="vexa-showcase-heading">
+          <div>
+            <p className="eyebrow">VEXA VISUAL SHOWCASE</p>
+            <h2 id="vexa-showcase-title">Beyond the music.</h2>
+          </div>
+          <p>
+            A visual archive exploring VEXA as an artist, model, and evolving creative identity. Select any portrait for a closer look.
+          </p>
+        </div>
+        <VexaGallery images={showcaseImages} />
       </section>
     </div>
   );

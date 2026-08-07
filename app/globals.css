@@ -622,3 +622,49 @@ p { color: var(--muted); line-height: 1.75; }
 .character-filter-bar > small { color:#77736c; white-space:nowrap; }
 .archive-empty { padding:90px 0 120px; }
 @media (max-width:1000px) { .character-filter-bar { grid-template-columns:1fr; align-items:start; } }
+
+/* VEXA visual showcase */
+.vexa-showcase-section { padding: 120px 0 150px; }
+.vexa-showcase-heading { display:grid; grid-template-columns:1fr .8fr; gap:70px; align-items:end; margin-bottom:42px; }
+.vexa-showcase-heading > p { max-width:620px; margin:0; justify-self:end; }
+.vexa-showcase-grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:10px; }
+.vexa-showcase-card { position:relative; min-height:430px; padding:0; overflow:hidden; border:1px solid var(--line); border-radius:16px; background:#0a0a0b; cursor:zoom-in; appearance:none; }
+.vexa-showcase-card:nth-child(5n + 1) { grid-row:span 2; min-height:870px; }
+.vexa-showcase-card img { object-fit:cover; object-position:center top; transition:transform .55s ease, filter .4s ease; }
+.vexa-showcase-card__veil { position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.42),transparent 42%); opacity:.15; transition:opacity .35s ease; }
+.vexa-showcase-card__icon { position:absolute; right:14px; bottom:12px; width:36px; height:36px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.28); border-radius:50%; background:rgba(4,4,5,.55); color:white; font-size:1.1rem; opacity:0; transform:translateY(5px); transition:opacity .25s, transform .25s; backdrop-filter:blur(10px); }
+.vexa-showcase-card:hover img { transform:scale(1.035); filter:brightness(1.04); }
+.vexa-showcase-card:hover .vexa-showcase-card__veil { opacity:1; }
+.vexa-showcase-card:hover .vexa-showcase-card__icon { opacity:1; transform:none; }
+
+.vexa-lightbox { position:fixed; z-index:1000; inset:0; display:grid; place-items:center; background:rgba(2,2,3,.95); backdrop-filter:blur(18px); }
+.vexa-lightbox__topbar { position:absolute; z-index:4; top:0; left:0; right:0; min-height:72px; display:flex; align-items:center; justify-content:space-between; padding:0 22px; color:#aaa59e; font-size:.72rem; letter-spacing:.12em; background:linear-gradient(180deg,rgba(0,0,0,.8),transparent); }
+.vexa-lightbox__tools { display:flex; align-items:center; gap:8px; }
+.vexa-lightbox__tools button { width:40px; height:40px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.14); border-radius:50%; background:rgba(255,255,255,.045); color:white; font-size:1.15rem; cursor:pointer; }
+.vexa-lightbox__tools > span { width:52px; text-align:center; letter-spacing:0; }
+.vexa-lightbox__tools .vexa-lightbox__close { margin-left:10px; font-size:1.5rem; }
+.vexa-lightbox__stage { position:absolute; inset:76px 84px 38px; overflow:hidden; display:grid; place-items:center; touch-action:pan-y; }
+.vexa-lightbox__stage.is-zoomed { cursor:zoom-out; overflow:auto; }
+.vexa-lightbox__image { position:relative; width:100%; height:100%; transform-origin:center center; transition:transform .18s ease; }
+.vexa-lightbox__image img { object-fit:contain; }
+.vexa-lightbox__nav { position:absolute; z-index:4; top:50%; width:48px; height:72px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.3); color:white; font-size:2.2rem; cursor:pointer; transform:translateY(-50%); backdrop-filter:blur(10px); }
+.vexa-lightbox__nav--prev { left:18px; border-radius:999px; }
+.vexa-lightbox__nav--next { right:18px; border-radius:999px; }
+
+@media (max-width:1100px) {
+  .vexa-showcase-grid { grid-template-columns:repeat(3,1fr); }
+  .vexa-showcase-card:nth-child(5n + 1) { grid-row:auto; min-height:480px; }
+}
+@media (max-width:760px) {
+  .vexa-showcase-section { padding-block:85px 110px; }
+  .vexa-showcase-heading { grid-template-columns:1fr; gap:16px; margin-bottom:28px; }
+  .vexa-showcase-heading > p { justify-self:start; }
+  .vexa-showcase-grid { grid-template-columns:repeat(2,1fr); gap:7px; }
+  .vexa-showcase-card,.vexa-showcase-card:nth-child(5n + 1) { min-height:300px; border-radius:12px; }
+  .vexa-showcase-card__icon { opacity:.8; transform:none; }
+  .vexa-lightbox__stage { inset:74px 10px 28px; }
+  .vexa-lightbox__nav { top:auto; bottom:18px; width:46px; height:46px; font-size:1.8rem; border-radius:50%; }
+  .vexa-lightbox__nav--prev { left:18px; }
+  .vexa-lightbox__nav--next { right:18px; }
+  .vexa-lightbox__topbar { padding-inline:14px; }
+}
