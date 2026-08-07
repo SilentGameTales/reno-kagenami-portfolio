@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { characters, getFaction } from "@/lib/characters";
 
-const factions = ["All", "Core Cast", "Black Meridian", "Truthrunner Network", "Stillwake", "Imperial Crown", "Independent"];
+const factions = ["All", "Core Cast", "Black Meridian", "Truthrunner Network", "Stillwake", "Imperial Crown", "Cosmic Forces", "Independent"];
 
 export default function CharactersPage() {
   const [active, setActive] = useState(characters[0]);
