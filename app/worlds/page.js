@@ -1,15 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import InteractiveAstraAtlas from "@/components/InteractiveAstraAtlas";
 
 export const metadata = { title: "Worlds" };
 
 const continents = [
-  ["Imperial Heartlands", "The political core of Astra Noctrya, protected by royal wards and rotting beneath false order."],
-  ["Verdant Shard", "A continent shaped by the World Tree, ancient roots, and powers older than recorded history."],
-  ["Pale Expanse", "A monastic frozen land where the Oracle waits beyond the snow and remembers what history lost."],
-  ["Ashbound Divide", "A scarred region of ruin, ash, and forgotten machines where survival strips identity to the bone."],
-  ["Tidemother Reaches", "An oceanic civilization closed to outsiders, watched by powers sleeping beneath the water."]
+  ["Imperial Heartlands", "The broad political and population center of Astra Noctrya, crossed by rivers, forests, mountain chains, and the Imperial Capital."],
+  ["Verdant Shard", "A living continent shaped by the World Tree, ancient forests, cliffs, waterfalls, and powers older than recorded history."],
+  ["Pale Expanse", "A frozen northern continent of glaciers, mountain ranges, ice shelves, and the Celestial Vault."],
+  ["Ashbound Divide", "A volcanic continent of ruin, ash, lava channels, black cliffs, craters, and remnants of lost structures."],
+  ["The Great Sands", "A separate southern desert continent of immense dunes, mesas, oases, rocky badlands, and ancient ruins."],
+  ["Tidemother Reaches", "An oceanic continent of island chains, reefs, deep currents, and a civilization that extends beneath the sea."],
+  ["Dracoa", "A storm-wreathed continent of dark mountain masses, floating formations, volcanic fractures, and dragons above the clouds."]
 ];
 
 const tsukihanaCharacters = [
@@ -183,7 +186,7 @@ export default function WorldsPage() {
             and carried forward by characters who inherit wounds they do not fully understand.
           </p>
           <div className="world-stat-grid">
-            <div><strong>5</strong><span>Continents</span></div>
+            <div><strong>7</strong><span>Continents</span></div>
             <div><strong>7</strong><span>Fated souls</span></div>
             <div><strong>1</strong><span>Buried creator</span></div>
           </div>
@@ -191,8 +194,12 @@ export default function WorldsPage() {
         </div>
       </section>
 
+      <section className="section-shell atlas-section-shell">
+        <InteractiveAstraAtlas />
+      </section>
+
       <section className="section-shell continent-section">
-        <p className="eyebrow">THE FIVE CONTINENTS</p>
+        <p className="eyebrow">THE SEVEN CONTINENTS</p>
         <div className="continent-grid">
           {continents.map(([name, copy], index) => (
             <article key={name}>
