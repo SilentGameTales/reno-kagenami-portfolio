@@ -1,0 +1,7 @@
+Contact: mailto:kahlilrene29@gmail.com
+Contact: mailto:silentgametales@gmail.com
+Expires: 2027-08-08T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://www.renokagenami.com/.well-known/security.txt
+Policy: https://www.renokagenami.com/contact
+Acknowledgments: https://www.renokagenami.com/about
