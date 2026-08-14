@@ -33,5 +33,5 @@ export default async function CharacterProfilePage({ params }) {
     ? formGroup.members.map((formId) => getCharacter(formId)).filter(Boolean)
     : [character];
 
-  return <CharacterDossier character={character} related={related} forms={forms} />;
+  return <CharacterDossier character={character} related={related} forms={forms} formGroup={formGroup} />;
 }

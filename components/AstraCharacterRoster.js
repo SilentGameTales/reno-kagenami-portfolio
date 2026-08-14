@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { characters, getFaction } from "@/lib/characters";
-import { getCharacterPortrait, getCharacterTransition, getCharacterFormGroup } from "@/lib/characterExperience";
+import { getCharacterPortrait, getCharacterTransition, getCharacterFormGroup, notionCharacterIndexUrl } from "@/lib/characterExperience";
 import CharacterPortalLink from "./CharacterPortalLink";
 import styles from "./AstraCharacterRoster.module.css";
 
@@ -25,6 +25,7 @@ export default function AstraCharacterRoster() {
           <p className="eyebrow">ASTRA NOCTRYA · CHARACTER ARCHIVE</p>
           <h1>Choose a soul. Open the record.</h1>
           <p className={styles.lede}>Every portrait is a gateway into a full character dossier, connected forms, relationships, and an expanding visual archive.</p>
+          <div className={styles.heroActions}><a href={notionCharacterIndexUrl} target="_blank" rel="noreferrer">Open Notion character index ↗</a></div>
         </div>
       </section>
 
@@ -63,7 +64,7 @@ export default function AstraCharacterRoster() {
                 <p>{getFaction(character)}</p>
                 <h2>{character.name}</h2>
                 <span>{character.title}</span>
-                {formGroup ? <small>{formGroup.members.length} connected forms / states</small> : null}
+                {formGroup ? <small>{formGroup.members.length} connected · {formGroup.label}</small> : null}
               </div>
             </article>
           );

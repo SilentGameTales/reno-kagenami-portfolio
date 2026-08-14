@@ -76,3 +76,44 @@
 @media (prefers-reduced-motion: reduce){
   .portal,.flash,.ring,.ringTwo,.sweep,.particles span{animation-duration:120ms!important}
 }
+
+/* Phase 1B transition identities */
+.theme_hammer{--portal-a:#ff465f;--portal-b:#fff1dd;background:radial-gradient(circle at 50% 58%,#361015 0,#080507 58%)}
+.theme_hammer .ring,.theme_hammer .ringTwo{border-radius:18%;transform:rotate(45deg)}
+.theme_hammer .sweep{height:4px;filter:none;box-shadow:0 0 30px #ff465f;transform:rotate(-8deg) translateX(-100%)}
+
+.theme_rot{--portal-a:#83e36a;--portal-b:#d9ffaf;background:radial-gradient(circle,#102313 0,#030705 66%)}
+.theme_rot .particles span{border-radius:45% 55% 48% 52%;filter:blur(.5px)}
+.theme_rot .ring,.theme_rot .ringTwo{border-style:dotted}
+
+.theme_storm{--portal-a:#6fc8ff;--portal-b:#effaff;background:radial-gradient(circle,#071d36 0,#02050a 65%)}
+.theme_storm .sweep{height:3px;filter:none;box-shadow:0 0 30px #7bd1ff,0 0 60px #fff;transform:rotate(-22deg) translateX(-100%)}
+.theme_storm .flash{animation:lightningFlash 620ms steps(2,end) both}
+
+.theme_null{--portal-a:#53e6ff;--portal-b:#d75cff;background:repeating-linear-gradient(0deg,#03070a 0 5px,#07101a 5px 7px)}
+.theme_null .sweep{height:6%;filter:blur(1px);animation:staticSweep 620ms steps(7,end) both;background:linear-gradient(90deg,transparent,#4ce8ff 35%,#d75cff 58%,transparent)}
+.theme_null .ring{border-style:dashed}.theme_null .ringTwo{border-style:dotted}
+
+.theme_sand{--portal-a:#d8a655;--portal-b:#ffe0a0;background:radial-gradient(circle,#3a2815 0,#090704 67%)}
+.theme_sand .particles span{width:7px;height:2px;border-radius:999px;box-shadow:0 0 8px #d8a655}
+.theme_sand .sweep{height:46%;filter:blur(30px);opacity:.75;background:linear-gradient(90deg,transparent,rgba(216,166,85,.72),rgba(255,224,160,.45),transparent)}
+
+.theme_chronos{--portal-a:#69bfff;--portal-b:#e9fbff;background:radial-gradient(circle,#0a1a2f 0,#020409 66%)}
+.theme_chronos .ring,.theme_chronos .ringTwo{border-style:dashed;box-shadow:0 0 36px #69bfff,inset 0 0 26px rgba(105,191,255,.28)}
+.theme_chronos .ringTwo{transform:rotate(45deg)}
+.theme_chronos .sweep{height:2px;filter:none;box-shadow:0 0 20px #69bfff}
+
+.theme_war{--portal-a:#e11730;--portal-b:#ff6a62;background:radial-gradient(circle,#30070b 0,#050203 64%)}
+.theme_war .ring,.theme_war .ringTwo{border-radius:12%;transform:rotate(45deg);border-color:#e11730}
+.theme_war .sweep{height:9%;filter:blur(5px);background:repeating-linear-gradient(90deg,transparent 0 18px,rgba(225,23,48,.75) 18px 21px,transparent 21px 38px)}
+
+.theme_pathology{--portal-a:#f1b552;--portal-b:#fff0c7;background:radial-gradient(circle,#2a1d0b 0,#070604 68%)}
+.theme_pathology .ring,.theme_pathology .ringTwo{border-width:2px;box-shadow:0 0 24px rgba(241,181,82,.55),inset 0 0 14px rgba(241,181,82,.2)}
+.theme_pathology .sweep{height:1px;filter:none;box-shadow:0 0 14px #f1b552}
+
+.theme_disguise{--portal-a:#c6a875;--portal-b:#f4e2bc;background:radial-gradient(circle,#211b14 0,#060504 70%)}
+.theme_disguise:after{content:"";position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(255,255,255,.08) 2px 3px);animation:filmFlicker 620ms steps(5,end) both}
+.theme_disguise .particles span{background:#d8c6a3;box-shadow:none;width:2px;height:2px}
+
+@keyframes lightningFlash{0%,18%,38%,100%{opacity:.05}20%,35%{opacity:1;background:#eaf9ff}58%{opacity:.35}}
+@keyframes filmFlicker{0%{opacity:.05}20%{opacity:.22}35%{opacity:.09}55%{opacity:.26}100%{opacity:.12}}

@@ -11,8 +11,36 @@ function relativeOffset(index, active, total) {
   return offset;
 }
 
+function normalizeImage(item, index, name) {
+  if (typeof item === "string") {
+    return { src: item, category: "Showcase", label: `${name} visual ${index + 1}` };
+  }
+  return {
+    src: item?.src,
+    category: item?.category || "Showcase",
+    label: item?.label || `${name} visual ${index + 1}`,
+  };
+}
+
 export default function CharacterVisualWheel({ images, name }) {
-  const cleanImages = useMemo(() => Array.from(new Set(images.filter(Boolean))), [images]);
+  const archive = useMemo(() => {
+    const seen = new Set();
+    return (images || [])
+      .map((item, index) => normalizeImage(item, index, name))
+      .filter((item) => {
+        if (!item.src || seen.has(item.src)) return false;
+        seen.add(item.src);
+        return true;
+      });
+  }, [images, name]);
+
+  const categories = useMemo(() => ["All", ...Array.from(new Set(archive.map((item) => item.category)))], [archive]);
+  const [category, setCategory] = useState("All");
+  const cleanImages = useMemo(
+    () => category === "All" ? archive : archive.filter((item) => item.category === category),
+    [archive, category]
+  );
+
   const [active, setActive] = useState(0);
   const [viewerOpen, setViewerOpen] = useState(false);
   const [zoom, setZoom] = useState(1);
@@ -20,8 +48,13 @@ export default function CharacterVisualWheel({ images, name }) {
   const dragRef = useRef(null);
 
   const total = cleanImages.length;
-  const next = () => setActive((value) => (value + 1) % total);
-  const previous = () => setActive((value) => (value - 1 + total) % total);
+  const next = () => total && setActive((value) => (value + 1) % total);
+  const previous = () => total && setActive((value) => (value - 1 + total) % total);
+
+  useEffect(() => {
+    setActive(0);
+    setViewerOpen(false);
+  }, [category]);
 
   useEffect(() => {
     if (!viewerOpen) return;
@@ -69,23 +102,33 @@ export default function CharacterVisualWheel({ images, name }) {
 
   return (
     <>
+      {categories.length > 2 ? (
+        <div className={styles.categories} aria-label="Visual archive categories">
+          {categories.map((item) => (
+            <button type="button" key={item} onClick={() => setCategory(item)} className={category === item ? styles.categoryActive : ""}>
+              {item}
+            </button>
+          ))}
+        </div>
+      ) : null}
+
       <div className={styles.shell} onWheel={handleWheel}>
         <button type="button" className={`${styles.arrow} ${styles.left}`} onClick={previous} disabled={total < 2} aria-label="Previous image">‹</button>
         <div className={styles.stage} aria-label={`${name} visual showcase`}>
-          {cleanImages.map((src, index) => {
+          {cleanImages.map((item, index) => {
             const offset = relativeOffset(index, active, total);
             const visible = Math.abs(offset) <= 2;
             const isActive = offset === 0;
             return (
               <button
                 type="button"
-                key={src}
+                key={item.src}
                 className={`${styles.card} ${isActive ? styles.active : ""}`}
                 style={{ "--offset": offset, "--distance": Math.abs(offset), "--z": 10 - Math.abs(offset), opacity: visible ? 1 : 0, pointerEvents: visible ? "auto" : "none" }}
                 onClick={() => isActive ? setViewerOpen(true) : setActive(index)}
-                aria-label={isActive ? `Open ${name} image ${index + 1}` : `Center ${name} image ${index + 1}`}
+                aria-label={isActive ? `Open ${item.label}` : `Center ${item.label}`}
               >
-                <Image src={src} alt={`${name} visual ${index + 1}`} fill sizes="(max-width: 760px) 76vw, 560px" className={styles.image} />
+                <Image src={item.src} alt={item.label} fill sizes="(max-width: 760px) 76vw, 560px" className={styles.image} />
                 {isActive ? <span className={styles.zoomHint}>Click to inspect</span> : null}
               </button>
             );
@@ -93,7 +136,7 @@ export default function CharacterVisualWheel({ images, name }) {
         </div>
         <button type="button" className={`${styles.arrow} ${styles.right}`} onClick={next} disabled={total < 2} aria-label="Next image">›</button>
       </div>
-      <div className={styles.counter}>{active + 1} / {total}</div>
+      <div className={styles.counter}>{active + 1} / {total} · {cleanImages[active]?.category}</div>
 
       {viewerOpen ? (
         <div className={styles.viewer} role="dialog" aria-modal="true" aria-label={`${name} image viewer`}>
@@ -101,10 +144,11 @@ export default function CharacterVisualWheel({ images, name }) {
           {total > 1 ? <button className={`${styles.viewerArrow} ${styles.viewerLeft}`} onClick={previous} type="button" aria-label="Previous image">‹</button> : null}
           <div className={styles.viewerCanvas} onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerUp}>
             <div className={styles.viewerImageWrap} style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, cursor: zoom > 1 ? "grab" : "default" }}>
-              <Image src={cleanImages[active]} alt={`${name} visual ${active + 1}`} fill sizes="100vw" className={styles.viewerImage} priority />
+              <Image src={cleanImages[active].src} alt={cleanImages[active].label} fill sizes="100vw" className={styles.viewerImage} priority />
             </div>
           </div>
           {total > 1 ? <button className={`${styles.viewerArrow} ${styles.viewerRight}`} onClick={next} type="button" aria-label="Next image">›</button> : null}
+          <div className={styles.viewerMeta}>{cleanImages[active].label}</div>
           <div className={styles.viewerControls}>
             <button type="button" onClick={() => setZoom((value) => Math.max(1, +(value - .25).toFixed(2)))} disabled={zoom <= 1}>−</button>
             <span>{Math.round(zoom * 100)}%</span>

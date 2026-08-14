@@ -8,7 +8,7 @@ import { getCharacterGallery, getCharacterPortrait, getCharacterTransition, getC
 import { getFaction } from "@/lib/characters";
 import styles from "./CharacterDossier.module.css";
 
-export default function CharacterDossier({ character, related, forms }) {
+export default function CharacterDossier({ character, related, forms, formGroup }) {
   const portrait = getCharacterPortrait(character);
   const gallery = getCharacterGallery(character);
   const notionUrl = getCharacterNotionUrl(character.id);
@@ -35,8 +35,9 @@ export default function CharacterDossier({ character, related, forms }) {
       {forms?.length > 1 ? (
         <section className={`section-shell ${styles.formsSection}`}>
           <div>
-            <p className="eyebrow">CONNECTED FORMS / STATES</p>
+            <p className="eyebrow">CONNECTED {formGroup?.label?.toUpperCase() || "FORMS / STATES"}</p>
             <h2>One identity. Multiple states.</h2>
+            {formGroup?.description ? <p className={styles.formDescription}>{formGroup.description}</p> : null}
           </div>
           <div className={styles.formRail}>
             {forms.map((form) => {
