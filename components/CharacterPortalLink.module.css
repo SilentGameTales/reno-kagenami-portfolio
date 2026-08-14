@@ -1,0 +1,78 @@
+.portal {
+  --portal-a: #d7d7d7;
+  --portal-b: #ffffff;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: rgba(3, 3, 8, 0.88);
+  pointer-events: none;
+  animation: portalIn 620ms cubic-bezier(.2,.75,.15,1) both;
+}
+.portal p {
+  position: relative;
+  z-index: 6;
+  margin-top: 12rem;
+  color: white;
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  opacity: .82;
+}
+.flash { position:absolute; inset:0; background:radial-gradient(circle at center, color-mix(in srgb, var(--portal-a) 65%, transparent), transparent 52%); animation:flash 620ms both; }
+.ring,.ringTwo { position:absolute; width:22vmin; aspect-ratio:1; border:1px solid var(--portal-a); border-radius:50%; box-shadow:0 0 40px var(--portal-a), inset 0 0 40px color-mix(in srgb, var(--portal-a) 45%, transparent); }
+.ring { animation:ringBurst 620ms ease-in both; }
+.ringTwo { animation:ringBurst 620ms 70ms ease-in both; opacity:.55; }
+.sweep { position:absolute; width:160%; height:22%; transform:rotate(-12deg) translateX(-90%); background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--portal-b) 65%, transparent), transparent); filter:blur(18px); animation:sweep 620ms ease-in-out both; }
+.particles { position:absolute; inset:0; }
+.particles span { position:absolute; left:50%; top:50%; width:5px; height:5px; border-radius:50%; background:var(--portal-a); box-shadow:0 0 16px var(--portal-a); transform:rotate(calc(var(--i) * 20deg)) translateY(-7vmin); animation:particle 620ms cubic-bezier(.18,.7,.2,1) both; animation-delay:calc(var(--i) * 5ms); }
+
+.theme_dawn{--portal-a:#ff9b32;--portal-b:#ffd682;background:radial-gradient(circle,#261205 0,#050506 62%)}
+.theme_shadow{--portal-a:#7d43ff;--portal-b:#be8cff;background:radial-gradient(circle,#130a22,#020205 64%)}
+.theme_celestial{--portal-a:#83a8ff;--portal-b:#e4edff;background:radial-gradient(circle,#0a1531,#02040a 65%)}
+.theme_kaosu{--portal-a:#e11235;--portal-b:#ff5f73;background:repeating-linear-gradient(0deg,#080105 0 4px,#170207 4px 6px)}
+.theme_cards{--portal-a:#8e5dff;--portal-b:#d5bdff}
+.theme_imperial{--portal-a:#ffbe4d;--portal-b:#fff1a3}
+.theme_research{--portal-a:#ff9f3f;--portal-b:#ffd08e}
+.theme_tide{--portal-a:#1bbcff;--portal-b:#b8eeff;background:radial-gradient(circle,#05263d,#01060b 67%)}
+.theme_frost{--portal-a:#8bdcff;--portal-b:#f0fbff;background:radial-gradient(circle,#102a3a,#03080c 65%)}
+.theme_chains{--portal-a:#9d66ff;--portal-b:#dfceff}
+.theme_radiant{--portal-a:#ffe079;--portal-b:#ffffff}
+.theme_ledger{--portal-a:#f2d38a;--portal-b:#fff8dd}
+.theme_speed{--portal-a:#b16cff;--portal-b:#ffffff}
+.theme_halo{--portal-a:#d96cff;--portal-b:#ffb8ff}
+.theme_blood{--portal-a:#d1132f;--portal-b:#ff7185}
+.theme_warden{--portal-a:#a6091f;--portal-b:#ff334e}
+.theme_inferno{--portal-a:#ff6c28;--portal-b:#ffd08b}
+.theme_alchemy{--portal-a:#a35cff;--portal-b:#d6b9ff}
+.theme_duality{--portal-a:#f3c35f;--portal-b:#8f5cff}
+.theme_heart{--portal-a:#cf173b;--portal-b:#ff7d95}
+.theme_joker{--portal-a:#8844ff;--portal-b:#ffd75c;background:repeating-linear-gradient(90deg,#05030b 0 12px,#0d061c 12px 13px)}
+.theme_cosmic{--portal-a:#925cff;--portal-b:#e2d5ff;background:radial-gradient(circle,#170a31,#020107 68%)}
+.theme_faith{--portal-a:#f2b53f;--portal-b:#fff0b5}
+.theme_arcane{--portal-a:#3c8cff;--portal-b:#a7d5ff}
+.theme_slash{--portal-a:#e7e7e7;--portal-b:#ffffff}
+.theme_ritual{--portal-a:#ca183c;--portal-b:#ff708d}
+.theme_thread{--portal-a:#d9c9ff;--portal-b:#ffffff}
+.theme_liquid{--portal-a:#7f6dff;--portal-b:#d6d2ff}
+.theme_club{--portal-a:#8f5cff;--portal-b:#d8c6ff}
+.theme_default{--portal-a:#d5d5d5;--portal-b:#fff}
+
+.theme_kaosu .portal,.theme_kaosu{}
+.theme_kaosu .sweep,.theme_joker .sweep{height:8%;filter:blur(2px);animation:staticSweep 620ms steps(5,end) both}
+.theme_frost .flash{background:radial-gradient(circle,#dff8ff 0,#7ac9ff 22%,transparent 62%)}
+.theme_tide .ring,.theme_tide .ringTwo{border-style:dashed}
+.theme_slash .sweep{height:3px;filter:none;box-shadow:0 0 25px white;transform:rotate(-25deg) translateX(-100%)}
+
+@keyframes portalIn{0%{opacity:0}12%{opacity:1}100%{opacity:1}}
+@keyframes flash{0%{opacity:0;transform:scale(.5)}42%{opacity:.72}100%{opacity:.08;transform:scale(2.3)}}
+@keyframes ringBurst{0%{transform:scale(.2) rotate(0);opacity:0}24%{opacity:1}100%{transform:scale(7) rotate(90deg);opacity:0}}
+@keyframes sweep{0%{transform:rotate(-12deg) translateX(-100%)}100%{transform:rotate(-12deg) translateX(75%)}}
+@keyframes staticSweep{0%{transform:translateY(-50vh);opacity:0}25%{opacity:1}100%{transform:translateY(50vh);opacity:0}}
+@keyframes particle{0%{opacity:0;transform:rotate(calc(var(--i) * 20deg)) translateY(-3vmin) scale(.3)}30%{opacity:1}100%{opacity:0;transform:rotate(calc(var(--i) * 20deg)) translateY(-60vmin) scale(1.6)}}
+
+@media (prefers-reduced-motion: reduce){
+  .portal,.flash,.ring,.ringTwo,.sweep,.particles span{animation-duration:120ms!important}
+}
