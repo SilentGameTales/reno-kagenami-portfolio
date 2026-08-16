@@ -117,3 +117,18 @@
 
 @keyframes lightningFlash{0%,18%,38%,100%{opacity:.05}20%,35%{opacity:1;background:#eaf9ff}58%{opacity:.35}}
 @keyframes filmFlicker{0%{opacity:.05}20%{opacity:.22}35%{opacity:.09}55%{opacity:.26}100%{opacity:.12}}
+
+
+/* Final roster transition identities */
+.theme_clinic{--portal-a:#9edcff;--portal-b:#fff4c9;background:radial-gradient(circle,#0b1f2b 0,#030709 68%)}
+.theme_clinic .ring,.theme_clinic .ringTwo{border-width:1px;box-shadow:0 0 26px rgba(158,220,255,.55)}
+.theme_echo{--portal-a:#c16dff;--portal-b:#72e7ff;background:radial-gradient(circle,#1b0d2d 0,#030509 68%)}
+.theme_echo .ringTwo{transform:scale(.8) rotate(60deg);border-style:dashed}
+.theme_echo .sweep{height:4px;filter:none;box-shadow:0 0 30px #c16dff,0 0 50px #72e7ff}
+.theme_verdant{--portal-a:#69d678;--portal-b:#d9ff9d;background:radial-gradient(circle,#0c2a16 0,#030805 68%)}
+.theme_verdant .particles span{border-radius:70% 20% 70% 20%;transform:rotate(calc(var(--i) * 20deg)) translateY(-7vmin)}
+.theme_siren{--portal-a:#b66cff;--portal-b:#6ee8ff;background:radial-gradient(circle,#21103a 0,#02101a 68%)}
+.theme_siren .ring,.theme_siren .ringTwo{border-style:dashed;box-shadow:0 0 34px rgba(182,108,255,.65)}
+.theme_hemal{--portal-a:#b70d2c;--portal-b:#ff5f78;background:radial-gradient(circle,#2c050b 0,#050203 68%)}
+.theme_hemal .ring,.theme_hemal .ringTwo{border-color:#b70d2c;box-shadow:0 0 44px rgba(183,13,44,.7),inset 0 0 30px rgba(183,13,44,.25)}
+.theme_hemal .sweep{height:12%;filter:blur(10px);background:linear-gradient(90deg,transparent,rgba(183,13,44,.75),rgba(255,95,120,.55),transparent)}
