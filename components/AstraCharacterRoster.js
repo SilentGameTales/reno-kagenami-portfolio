@@ -22,7 +22,7 @@ export default function AstraCharacterRoster() {
     <>
       <section className={styles.hero}>
         <div className="section-shell">
-          <p className="eyebrow">ASTRA NOCTRYA · CHARACTER ARCHIVE</p>
+          <p className="eyebrow">FRACTURED GENESIS · CHARACTER ARCHIVE</p>
           <h1>Choose a soul. Open the record.</h1>
           <p className={styles.lede}>Every portrait is a gateway into a full character dossier, connected forms, relationships, and an expanding visual archive.</p>
           <div className={styles.heroActions}><a href={notionCharacterIndexUrl} target="_blank" rel="noreferrer">Open Notion character index ↗</a></div>

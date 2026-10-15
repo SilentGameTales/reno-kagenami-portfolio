@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
 
 export const metadata = { title: "About" };
@@ -9,7 +10,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="ABOUT THE CREATOR"
         title="Hi, I’m Kahlil."
-        copy="I create original fantasy worlds, character-driven stories, music identities, and cinematic visual concepts under the name Ren’ō Kagenami."
+        copy="I create original fantasy worlds, character-driven stories, music identities, game concepts, and cinematic visual experiences under the name Ren’ō Kagenami."
       />
 
       <section className="about-grid section-shell">
@@ -18,8 +19,9 @@ export default function AboutPage() {
         </div>
         <div className="about-copy">
           <p>
-            Ren’ō was my first character. Over time, his name became large enough to hold everything else: Astra Noctrya,
-            Tsukihana Kurogane, VEXA, character archives, music videos, manga concepts, fight choreography, and the worlds still waiting to be built.
+            Ren’ō was my first character. Over time, his name became large enough to hold everything else: Fractured Genesis,
+            Parallax Zero, Still Rising, Echoes of Hollow’s Edge, VEXA, Tsukihana Kurogane, character archives, music videos,
+            manga concepts, fight choreography, and the worlds still waiting to be built.
           </p>
           <p>
             My process moves between writing and visual development. A character may begin as a single image, then gain a history,
@@ -29,6 +31,11 @@ export default function AboutPage() {
           <blockquote>
             I am not building isolated images. I am building evidence that these worlds exist.
           </blockquote>
+          <div className="button-row">
+            <Link className="button button-primary" href="/projects">Explore the projects</Link>
+            <a className="button button-ghost" href="https://www.tiktok.com/@silentsynthtales" target="_blank" rel="noreferrer">TikTok ↗</a>
+            <a className="button button-ghost" href="https://www.instagram.com/silentsynthtales" target="_blank" rel="noreferrer">Instagram ↗</a>
+          </div>
         </div>
       </section>
 

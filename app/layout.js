@@ -12,7 +12,12 @@ export const metadata = {
     "The creator portfolio of Kahlil: original worlds, character design, music, fiction, and AI-assisted visual storytelling.",
   keywords: [
     "Ren'o Kagenami",
+    "Fractured Genesis",
     "Astra Noctrya",
+    "Parallax Zero",
+    "Still Rising",
+    "Echoes of Hollow's Edge",
+    "VEXA",
     "visual storytelling",
     "character design",
     "AI cinema",

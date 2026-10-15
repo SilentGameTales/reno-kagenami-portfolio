@@ -21,7 +21,7 @@ export default function CharacterDossier({ character, related, forms, formGroup 
         <div className={`section-shell ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
             <Link className={styles.back} href="/characters">← Character archive</Link>
-            <p className="eyebrow">ASTRA NOCTRYA DOSSIER · {getFaction(character)}</p>
+            <p className="eyebrow">FRACTURED GENESIS DOSSIER · {getFaction(character)}</p>
             <h1>{character.name}</h1>
             <p className={styles.title}>{character.title}</p>
             <blockquote>{character.quoteType ? <><small>{character.quoteType}</small>{character.quote}</> : <>“{character.quote}”</>}</blockquote>

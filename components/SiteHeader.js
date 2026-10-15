@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const links = [
   ["/", "Home"],
-  ["/worlds", "Worlds"],
+  ["/projects", "Projects"],
   ["/characters", "Characters"],
   ["/stories", "Stories"],
   ["/music", "Music"],

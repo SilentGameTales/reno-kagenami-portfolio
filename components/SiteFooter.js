@@ -10,19 +10,20 @@ export default function SiteFooter() {
             <Image src="/images/reno-emblem.png" alt="Ren’ō Kagenami emblem" fill sizes="58px" />
           </div>
           <p className="eyebrow">REN’Ō KAGENAMI</p>
-          <p className="footer-copy">Original worlds, visual stories, music, and motion by Kahlil.</p>
+          <p className="footer-copy">Original projects, visual stories, music, and motion by Kahlil.</p>
         </div>
         <div>
           <p className="footer-heading">Explore</p>
-          <Link href="/worlds">Worlds</Link>
+          <Link href="/projects">Projects</Link>
+          <Link href="/worlds#fractured-genesis">Fractured Genesis</Link>
           <Link href="/characters">Character Archive</Link>
           <Link href="/music">VEXA</Link>
         </div>
         <div>
-          <p className="footer-heading">Connect</p>
-          <a href="mailto:silentgametales@gmail.com">Email</a>
-          <a href="https://www.tiktok.com/@silentsynthtales" target="_blank" rel="noreferrer">TikTok</a>
-          <a href="https://www.instagram.com/silentsynthtales" target="_blank" rel="noreferrer">Instagram</a>
+          <p className="footer-heading">Follow</p>
+          <a href="https://www.tiktok.com/@silentsynthtales" target="_blank" rel="noreferrer">TikTok · @silentsynthtales</a>
+          <a href="https://www.instagram.com/silentsynthtales" target="_blank" rel="noreferrer">Instagram · @silentsynthtales</a>
+          <a href="mailto:silentgametales@gmail.com">Email · silentgametales@gmail.com</a>
         </div>
       </div>
       <div className="footer-bottom">
