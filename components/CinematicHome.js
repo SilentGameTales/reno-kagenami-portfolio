@@ -18,22 +18,22 @@ const scenes = [
     tone: "blue",
     portrait: true,
     actions: [
-      { href: "/worlds", label: "Enter the worlds", primary: true },
+      { href: "/projects", label: "Explore the projects", primary: true },
       { href: "/characters", label: "Open the character archive" }
     ]
   },
   {
-    id: "astra",
-    label: "Astra Noctrya",
-    kicker: "FLAGSHIP DARK-FANTASY UNIVERSE",
+    id: "fractured-genesis",
+    label: "Fractured Genesis",
+    kicker: "FLAGSHIP DARK-FANTASY SERIES",
     title: "A world that survived being rewritten.",
-    copy: "Cross fractured continents, open the living atlas, and follow characters moving through a history altered by The Edit.",
+    copy: "Enter Fractured Genesis, a dark-fantasy series set across Astra Noctrya, and follow characters moving through a history altered by The Edit.",
     image: "/images/astra-noctrya.jpg",
-    imageAlt: "Cinematic artwork representing the dark-fantasy world of Astra Noctrya",
+    imageAlt: "Cinematic artwork representing Fractured Genesis and the world of Astra Noctrya",
     icon: "/images/home-nav/gold-queen.png",
     tone: "gold",
     actions: [
-      { href: "/worlds#astra-noctrya", label: "Explore Astra Noctrya", primary: true },
+      { href: "/worlds#fractured-genesis", label: "Enter Fractured Genesis", primary: true },
       { href: "/characters", label: "Meet the characters" }
     ]
   },
@@ -86,7 +86,7 @@ const scenes = [
 ];
 
 const quickLinks = [
-  ["/worlds", "Worlds", "Atlas, continents, factions, and universe hubs"],
+  ["/projects", "Projects", "Fractured Genesis, Parallax Zero, Still Rising, Echoes of Hollow’s Edge, and VEXA"],
   ["/characters", "Characters", "Circular roster, dossiers, forms, and visual archives"],
   ["/stories", "Stories", "Chronicles, chapters, and interactive reading"],
   ["/music", "Music", "VEXA releases and visual identity"],
@@ -283,6 +283,13 @@ export default function CinematicHome() {
                 <b aria-hidden="true">↗</b>
               </Link>
             ))}
+          </div>
+          <div className={styles.socialBar}>
+            <p>FOLLOW THE WORK</p>
+            <div>
+              <a href="https://www.tiktok.com/@silentsynthtales" target="_blank" rel="noreferrer">TikTok · @silentsynthtales ↗</a>
+              <a href="https://www.instagram.com/silentsynthtales" target="_blank" rel="noreferrer">Instagram · @silentsynthtales ↗</a>
+            </div>
           </div>
         </div>
       </section>
