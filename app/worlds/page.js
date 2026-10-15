@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import InteractiveAstraAtlas from "@/components/InteractiveAstraAtlas";
 
-export const metadata = { title: "Worlds" };
+export const metadata = { title: "Fractured Genesis" };
 
 const continents = [
   ["Imperial Heartlands", "The broad political and population center of Astra Noctrya, crossed by rivers, forests, mountain chains, and the Imperial Capital."],
@@ -169,17 +169,17 @@ export default function WorldsPage() {
   return (
     <>
       <PageHero
-        eyebrow="ORIGINAL WORLDS"
+        eyebrow="FRACTURED GENESIS · WORLD ARCHIVE"
         title="Enter the archive."
-        copy="Each world has its own visual language, mythology, and rules. Nothing exists in isolation; every power leaves a cost behind."
+        copy="Enter the primary world archive for Fractured Genesis: its continents, powers, histories, and the people carrying its fractures forward."
       />
 
-      <section id="astra-noctrya" className="world-feature section-shell world-violet">
+      <section id="fractured-genesis" className="world-feature section-shell world-violet">
         <div className="world-feature__image">
-          <Image src="/images/astra-noctrya.jpg" alt="Astra Noctrya illustrated world poster" fill sizes="(max-width: 900px) 100vw, 45vw" />
+          <Image src="/images/astra-noctrya.jpg" alt="Fractured Genesis world poster set in Astra Noctrya" fill sizes="(max-width: 900px) 100vw, 45vw" />
         </div>
         <div className="world-feature__copy">
-          <p className="eyebrow">ASTRA NOCTRYA</p>
+          <p className="eyebrow">FRACTURED GENESIS</p>
           <h2>The stars remember. The world forgets.</h2>
           <p>
             Astra Noctrya is a dark fantasy universe shaped by Ren’ō Kagenami, hidden by Nyxara’s reality-altering Edit,
