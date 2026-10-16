@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const links = [
   ["/", "Home"],
+  ["/projects", "Projects"],
   ["/worlds", "Worlds"],
   ["/characters", "Characters"],
   ["/stories", "Stories"],
@@ -23,39 +24,14 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="nav-shell">
         <Link className="brand" href="/" onClick={() => setOpen(false)}>
-          <span className="brand-mark">
-            <Image src="/images/reno-emblem.png" alt="Ren’ō Kagenami emblem" fill sizes="38px" priority />
-          </span>
-          <span>
-            <strong>REN’Ō KAGENAMI</strong>
-            <small>CREATOR IDENTITY</small>
-          </span>
+          <span className="brand-mark"><Image src="/images/reno-emblem.png" alt="Ren’ō Kagenami emblem" fill sizes="38px" priority /></span>
+          <span><strong>REN’Ō KAGENAMI</strong><small>CREATOR IDENTITY</small></span>
         </Link>
-
-        <button
-          className="menu-button"
-          type="button"
-          aria-expanded={open}
-          aria-label="Toggle navigation"
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span />
-          <span />
-        </button>
-
-        <nav className={open ? "nav-links is-open" : "nav-links"} aria-label="Primary navigation">
+        <button className="menu-button" type="button" aria-expanded={open} aria-label="Toggle navigation" onClick={() => setOpen((value) => !value)}><span /><span /></button>
+        <nav className={open ? "nav-links is-open" : "nav-links"} style={{ gap: "clamp(12px, 1.3vw, 25px)" }} aria-label="Primary navigation">
           {links.map(([href, label]) => {
             const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={active ? "active" : ""}
-                onClick={() => setOpen(false)}
-              >
-                {label}
-              </Link>
-            );
+            return <Link key={href} href={href} className={active ? "active" : ""} onClick={() => setOpen(false)}>{label}</Link>;
           })}
         </nav>
       </div>

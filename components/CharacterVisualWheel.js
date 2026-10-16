@@ -13,10 +13,11 @@ function relativeOffset(index, active, total) {
 
 function normalizeImage(item, index, name) {
   if (typeof item === "string") {
-    return { src: item, category: "Showcase", label: `${name} visual ${index + 1}` };
+    return { src: item, style: "cinematic", category: "Showcase", label: `${name} visual ${index + 1}` };
   }
   return {
     src: item?.src,
+    style: item?.style || "cinematic",
     category: item?.category || "Showcase",
     label: item?.label || `${name} visual ${index + 1}`,
   };
@@ -34,12 +35,24 @@ export default function CharacterVisualWheel({ images, name }) {
       });
   }, [images, name]);
 
-  const categories = useMemo(() => ["All", ...Array.from(new Set(archive.map((item) => item.category)))], [archive]);
+  const hasOfficial = archive.some((item) => item.style === "official");
+  const hasCinematic = archive.some((item) => item.style === "cinematic");
+  const [artFilter, setArtFilter] = useState("all");
   const [category, setCategory] = useState("All");
-  const cleanImages = useMemo(
-    () => category === "All" ? archive : archive.filter((item) => item.category === category),
-    [archive, category]
+  const styleImages = useMemo(
+    () => artFilter === "all" ? archive : archive.filter((item) => item.style === artFilter),
+    [archive, artFilter]
   );
+  const categories = useMemo(() => ["All", ...Array.from(new Set(styleImages.map((item) => item.category)))], [styleImages]);
+  const cleanImages = useMemo(
+    () => category === "All" ? styleImages : styleImages.filter((item) => item.category === category),
+    [styleImages, category]
+  );
+
+  function chooseArtFilter(next) {
+    setArtFilter(next);
+    setCategory("All");
+  }
 
   const [active, setActive] = useState(0);
   const [viewerOpen, setViewerOpen] = useState(false);
@@ -54,7 +67,7 @@ export default function CharacterVisualWheel({ images, name }) {
   useEffect(() => {
     setActive(0);
     setViewerOpen(false);
-  }, [category]);
+  }, [category, artFilter]);
 
   useEffect(() => {
     if (!viewerOpen) return;
@@ -102,10 +115,18 @@ export default function CharacterVisualWheel({ images, name }) {
 
   return (
     <>
+      {hasOfficial && hasCinematic ? (
+        <div className={styles.artGalleryFilters} role="group" aria-label="Filter visual archive by art style">
+          <span>ART STYLE</span>
+          <button type="button" aria-pressed={artFilter === "all"} className={artFilter === "all" ? styles.artGalleryActive : ""} onClick={() => chooseArtFilter("all")}>All artwork</button>
+          <button type="button" aria-pressed={artFilter === "official"} className={artFilter === "official" ? styles.artGalleryActive : ""} onClick={() => chooseArtFilter("official")}>Official 2D</button>
+          <button type="button" aria-pressed={artFilter === "cinematic"} className={artFilter === "cinematic" ? styles.artGalleryActive : ""} onClick={() => chooseArtFilter("cinematic")}>Cinematic</button>
+        </div>
+      ) : null}
       {categories.length > 2 ? (
         <div className={styles.categories} aria-label="Visual archive categories">
           {categories.map((item) => (
-            <button type="button" key={item} onClick={() => setCategory(item)} className={category === item ? styles.categoryActive : ""}>
+            <button type="button" key={item} onClick={() => setCategory(item)} aria-pressed={category === item} className={category === item ? styles.categoryActive : ""}>
               {item}
             </button>
           ))}
@@ -136,7 +157,7 @@ export default function CharacterVisualWheel({ images, name }) {
         </div>
         <button type="button" className={`${styles.arrow} ${styles.right}`} onClick={next} disabled={total < 2} aria-label="Next image">›</button>
       </div>
-      <div className={styles.counter}>{active + 1} / {total} · {cleanImages[active]?.category}</div>
+      <div className={styles.counter}>{active + 1} / {total} · {cleanImages[active]?.category} · {cleanImages[active]?.style === "official" ? "Official 2D" : "Cinematic"}</div>
 
       {viewerOpen ? (
         <div className={styles.viewer} role="dialog" aria-modal="true" aria-label={`${name} image viewer`}>

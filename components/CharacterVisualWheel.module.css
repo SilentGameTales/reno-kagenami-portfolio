@@ -6,3 +6,10 @@
 .categories{display:flex;justify-content:center;gap:.55rem;flex-wrap:wrap;margin:0 auto 1.25rem}.categories button{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025);color:rgba(255,255,255,.58);border-radius:999px;padding:.52rem .8rem;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.2s}.categories button:hover,.categories .categoryActive{color:#fff;border-color:rgba(159,116,255,.55);background:rgba(126,77,255,.13);box-shadow:0 0 20px rgba(126,77,255,.1)}
 .viewerMeta{position:absolute;top:1rem;left:50%;transform:translateX(-50%);z-index:5;color:rgba(255,255,255,.64);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;max-width:55vw;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media(max-width:760px){.categories{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:.35rem}.categories button{white-space:nowrap}.viewerMeta{top:1.25rem;max-width:60vw}}
+
+/* Phase 4: top-level art-style filter, independent from scene/category filters. */
+.artGalleryFilters{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;margin:0 auto 1.35rem}
+.artGalleryFilters span{font-size:.62rem;font-weight:700;letter-spacing:.2em;color:rgba(255,255,255,.44);margin-right:.5rem}
+.artGalleryFilters button{border-radius:999px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.035);color:rgba(255,255,255,.65);padding:.65rem 1.05rem;font-size:.75rem;cursor:pointer;transition:background .2s,border-color .2s}
+.artGalleryFilters button:hover,.artGalleryFilters .artGalleryActive{background:rgba(148,113,255,.17);border-color:rgba(171,141,255,.62);color:white;box-shadow:0 0 25px rgba(126,77,255,.11)}
+@media(max-width:760px){.artGalleryFilters{justify-content:flex-start;gap:.35rem}.artGalleryFilters span{flex-basis:100%;margin-bottom:.25rem}.artGalleryFilters button{padding:.6rem .75rem;font-size:.69rem}}

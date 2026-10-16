@@ -9,3 +9,16 @@
 @media(max-width:560px){.heroGrid{padding-bottom:3.5rem}.heroCopy h1{font-size:clamp(2.8rem,15vw,4.6rem)}.formsSection{padding-top:2.8rem}.formLink{min-width:220px}.facts div{grid-template-columns:1fr;gap:.35rem}.relatedHeading{display:block}.relatedGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.relatedCard{padding:1rem .5rem;border-radius:18px}}
 
 .formDescription{margin:.55rem 0 0;max-width:680px;color:rgba(255,255,255,.56);line-height:1.65;font-size:.9rem}
+
+/* Phase 4: official 2D sheet gets a complete uncropped presentation. */
+.artSwitcher{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
+.artSwitcher>span{font-size:.64rem;font-weight:700;letter-spacing:.19em;color:rgba(255,255,255,.5);margin-right:.25rem}
+.artSwitcher button{border:1px solid rgba(255,255,255,.15);border-radius:999px;background:rgba(3,3,7,.45);color:rgba(255,255,255,.65);padding:.7rem 1rem;font-size:.78rem;cursor:pointer;transition:background .2s,border-color .2s,box-shadow .2s}
+.artSwitcher button:hover,.artSwitcher .artSwitcherActive{color:#fff;background:var(--accentSoft);border-color:var(--accent);box-shadow:0 0 30px var(--accentSoft)}
+.officialArtFrame{position:relative;width:min(460px,35vw);height:min(590px,65vh);min-height:430px;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 50% 68%,var(--accentSoft),rgba(6,6,10,.72) 60%,rgba(6,6,10,.3));border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);border-radius:32px;box-shadow:0 24px 100px rgba(0,0,0,.48),0 0 70px var(--accentSoft)}
+.officialArtFrame:after{content:"";position:absolute;inset:auto 0 0;height:20%;background:linear-gradient(0deg,rgba(5,5,10,.88),transparent);pointer-events:none;z-index:1}
+.officialArtImage{object-fit:contain;object-position:center center;transition:opacity .3s ease}
+.artFrameLabel{position:absolute;bottom:1.3rem;left:50%;transform:translateX(-50%);white-space:nowrap;z-index:2;font-size:.59rem;letter-spacing:.21em;font-weight:700;color:rgba(255,255,255,.68)}
+@media(max-width:900px){.officialArtFrame{width:min(440px,86vw);height:min(565px,70vh);min-height:370px}.medallionWrap{margin-bottom:.2rem}}
+@media(max-width:560px){.officialArtFrame{width:min(360px,86vw);height:min(490px,64vh);min-height:345px;border-radius:22px}.artFrameLabel{font-size:.53rem;letter-spacing:.12em}}
+@media(prefers-reduced-motion:reduce){.officialArtImage,.artSwitcher button{transition:none}}

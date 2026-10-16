@@ -3,13 +3,15 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { characters, getFaction } from "@/lib/characters";
-import { getCharacterPortrait, getCharacterTransition, getCharacterFormGroup, notionCharacterIndexUrl } from "@/lib/characterExperience";
+import { getCharacterDisplayArt, getCharacterRosterArt, getCharacterOfficialArt, getCharacterTransition, getCharacterFormGroup, notionCharacterIndexUrl } from "@/lib/characterExperience";
 import CharacterPortalLink from "./CharacterPortalLink";
+import { useArtStylePreference } from "./useArtStylePreference";
 import styles from "./AstraCharacterRoster.module.css";
 
 export default function AstraCharacterRoster() {
   const [query, setQuery] = useState("");
   const [faction, setFaction] = useState("All");
+  const [artStyle, chooseArtStyle] = useArtStylePreference();
 
   const factions = useMemo(() => ["All", ...Array.from(new Set(characters.map(getFaction))).sort()], []);
   const filtered = useMemo(() => characters.filter((character) => {
@@ -22,7 +24,7 @@ export default function AstraCharacterRoster() {
     <>
       <section className={styles.hero}>
         <div className="section-shell">
-          <p className="eyebrow">ASTRA NOCTRYA · CHARACTER ARCHIVE</p>
+          <p className="eyebrow">FRACTURED GENESIS · ASTRA NOCTRYA CHARACTER ARCHIVE</p>
           <h1>Choose a soul. Open the record.</h1>
           <p className={styles.lede}>Every portrait is a gateway into a full character dossier, connected forms, relationships, and an expanding visual archive.</p>
           <div className={styles.heroActions}><a href={notionCharacterIndexUrl} target="_blank" rel="noreferrer">Open Notion character index ↗</a></div>
@@ -39,12 +41,21 @@ export default function AstraCharacterRoster() {
             <button type="button" key={item} className={faction === item ? styles.active : ""} onClick={() => setFaction(item)}>{item}</button>
           ))}
         </div>
+        <div className={styles.artFilter} role="group" aria-label="Choose character portrait art style">
+          <span>PORTRAIT STYLE</span>
+          <div className={styles.artFilterOptions}>
+            <button type="button" aria-pressed={artStyle === "official"} className={artStyle === "official" ? styles.artFilterActive : ""} onClick={() => chooseArtStyle("official")}>Official 2D</button>
+            <button type="button" aria-pressed={artStyle === "cinematic"} className={artStyle === "cinematic" ? styles.artFilterActive : ""} onClick={() => chooseArtStyle("cinematic")}>Cinematic</button>
+          </div>
+          <p>Official 2D art is available for 19 characters. Others keep their existing portraits.</p>
+        </div>
         <small>{filtered.length} records visible</small>
       </section>
 
       <section className={`section-shell ${styles.roster}`}>
         {filtered.map((character) => {
-          const portrait = getCharacterPortrait(character);
+          const portrait = getCharacterRosterArt(character, artStyle);
+          const isOfficial = artStyle === "official" && Boolean(getCharacterOfficialArt(character));
           const formGroup = getCharacterFormGroup(character.id);
           return (
             <article className={styles.entry} key={character.id}>
@@ -56,12 +67,12 @@ export default function AstraCharacterRoster() {
               >
                 <span className={styles.ring} />
                 <span className={styles.portraitFrame}>
-                  <Image src={portrait} alt={character.name} fill sizes="(max-width: 640px) 42vw, 190px" className={styles.portrait} />
+                  <Image src={portrait} alt={character.name} fill sizes="(max-width: 640px) 42vw, 190px" className={`${styles.portrait} ${isOfficial ? styles.portraitOfficial : ""}`} />
                 </span>
                 <span className={styles.aura} />
               </CharacterPortalLink>
               <div className={styles.copy}>
-                <p>{getFaction(character)}</p>
+                <p>{getFaction(character)} {isOfficial ? "· 2D" : ""}</p>
                 <h2>{character.name}</h2>
                 <span>{character.title}</span>
                 {formGroup ? <small>{formGroup.members.length} connected · {formGroup.label}</small> : null}

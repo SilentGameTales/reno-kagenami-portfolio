@@ -4,12 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import CharacterPortalLink from "./CharacterPortalLink";
 import CharacterVisualWheel from "./CharacterVisualWheel";
-import { getCharacterGallery, getCharacterPortrait, getCharacterTransition, getCharacterNotionUrl } from "@/lib/characterExperience";
+import { useArtStylePreference } from "./useArtStylePreference";
+import { getCharacterGallery, getCharacterDisplayArt, getCharacterRosterArt, getCharacterOfficialArt, getCharacterTransition, getCharacterNotionUrl } from "@/lib/characterExperience";
 import { getFaction } from "@/lib/characters";
 import styles from "./CharacterDossier.module.css";
 
 export default function CharacterDossier({ character, related, forms, formGroup }) {
-  const portrait = getCharacterPortrait(character);
+  const [artStyle, chooseArtStyle] = useArtStylePreference();
+  const officialArt = getCharacterOfficialArt(character);
+  const isOfficial = Boolean(officialArt) && artStyle === "official";
+  const portrait = getCharacterDisplayArt(character, artStyle);
   const gallery = getCharacterGallery(character);
   const notionUrl = getCharacterNotionUrl(character.id);
 
@@ -21,13 +25,27 @@ export default function CharacterDossier({ character, related, forms, formGroup 
         <div className={`section-shell ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
             <Link className={styles.back} href="/characters">← Character archive</Link>
-            <p className="eyebrow">ASTRA NOCTRYA DOSSIER · {getFaction(character)}</p>
+            <p className="eyebrow">FRACTURED GENESIS · ASTRA NOCTRYA · {getFaction(character)}</p>
             <h1>{character.name}</h1>
             <p className={styles.title}>{character.title}</p>
+            {officialArt ? (
+              <div className={styles.artSwitcher} role="group" aria-label="Choose dossier artwork style">
+                <span>ARTWORK</span>
+                <button type="button" aria-pressed={isOfficial} className={isOfficial ? styles.artSwitcherActive : ""} onClick={() => chooseArtStyle("official")}>Official 2D</button>
+                <button type="button" aria-pressed={!isOfficial} className={!isOfficial ? styles.artSwitcherActive : ""} onClick={() => chooseArtStyle("cinematic")}>Cinematic</button>
+              </div>
+            ) : null}
             <blockquote>{character.quoteType ? <><small>{character.quoteType}</small>{character.quote}</> : <>“{character.quote}”</>}</blockquote>
           </div>
           <div className={styles.medallionWrap}>
-            <div className={styles.medallion}><Image src={portrait} alt={character.name} fill sizes="(max-width: 760px) 68vw, 360px" className={styles.medallionImage} priority /></div>
+            {isOfficial ? (
+              <div className={styles.officialArtFrame}>
+                <Image src={portrait} alt={`${character.name} official 2D full-body design`} fill sizes="(max-width: 900px) 80vw, 440px" className={styles.officialArtImage} priority />
+                <span className={styles.artFrameLabel}>OFFICIAL CHARACTER DESIGN · 2D</span>
+              </div>
+            ) : (
+              <div className={styles.medallion}><Image src={portrait} alt={`${character.name} cinematic portrait`} fill sizes="(max-width: 760px) 68vw, 360px" className={styles.medallionImage} priority /></div>
+            )}
           </div>
         </div>
       </section>
@@ -44,7 +62,7 @@ export default function CharacterDossier({ character, related, forms, formGroup 
               const active = form.id === character.id;
               return (
                 <CharacterPortalLink key={form.id} href={`/characters/${form.id}`} transition={getCharacterTransition(form.id)} className={`${styles.formLink} ${active ? styles.formActive : ""}`} ariaLabel={`Open ${form.name} ${form.title}`}>
-                  <span className={styles.formPortrait}><Image src={getCharacterPortrait(form)} alt={form.name} fill sizes="88px" /></span>
+                  <span className={styles.formPortrait}><Image src={getCharacterRosterArt(form, artStyle)} alt={form.name} fill sizes="88px" /></span>
                   <span><strong>{form.name}</strong><small>{form.title}</small></span>
                 </CharacterPortalLink>
               );
@@ -68,7 +86,7 @@ export default function CharacterDossier({ character, related, forms, formGroup 
       <section className={styles.showcaseSection}>
         <div className={`section-shell ${styles.showcaseHeading}`}>
           <div><p className="eyebrow">VISUAL ARCHIVE</p><h2>Explore the character.</h2></div>
-          <p>Use the arrows, mouse wheel, or swipe gestures to move through the archive. Open the centered image for a full-screen view with zoom.</p>
+          <p>Explore official character designs and cinematic scenes. Filter by art style, then browse combat, abilities, portraits, and other available categories. Click the centered image to zoom.</p>
         </div>
         <div className={`section-shell ${styles.showcase}`}>
           <CharacterVisualWheel images={gallery} name={character.name} />
@@ -85,7 +103,7 @@ export default function CharacterDossier({ character, related, forms, formGroup 
         <div className={styles.relatedGrid}>
           {related.map((entry) => (
             <CharacterPortalLink key={entry.id} href={`/characters/${entry.id}`} transition={getCharacterTransition(entry.id)} className={styles.relatedCard} ariaLabel={`Open ${entry.name} dossier`}>
-              <span className={styles.relatedPortrait}><Image src={getCharacterPortrait(entry)} alt={entry.name} fill sizes="150px" /></span>
+              <span className={styles.relatedPortrait}><Image src={getCharacterRosterArt(entry, artStyle)} alt={entry.name} fill sizes="150px" /></span>
               <span className={styles.relatedCopy}><small>{entry.title}</small><strong>{entry.name}</strong></span>
             </CharacterPortalLink>
           ))}
