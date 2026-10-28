@@ -1,0 +1,9 @@
+track,title,filename,planned_vocal,duration_seconds,display_duration,web_size_mb,sample_rate_hz,source,peak_dbfs,rms_dbfs,near_fullscale_samples
+1,The First Transmission,01_the_first_transmission.mp3,Male lead,242.07,4:02,4.84,44100,supplied WAV,-0.09,-12.2,0
+2,Whispers Through the Static,02_whispers_through_the_static.mp3,Duet,248.07,4:08,4.96,44100,supplied WAV,-0.14,-13.86,0
+3,The Woman in the Walls,03_the_woman_in_the_walls.mp3,VEXA lead,237.75,3:57,4.76,44100,supplied WAV,-0.09,-13.07,0
+4,Footsteps Without Shadows,04_footsteps_without_shadows.mp3,Male lead,264.11,4:24,5.28,44100,supplied WAV,-0.12,-13.51,0
+5,The Devil's Frequency,05_the_devils_frequency.mp3,Duet,257.23,4:17,5.15,44100,supplied WAV,-0.12,-13.23,0
+6,Lullaby for the Hollow,06_lullaby_for_the_hollow.mp3,VEXA lead,242.91,4:02,4.86,44100,supplied WAV,-0.16,-14.41,0
+7,When the Dead Sing,07_when_the_dead_sing.mp3,Duet,259.71,4:19,5.2,44100,supplied WAV,-0.13,-12.77,0
+8,Terror in Resonance,08_terror_in_resonance.mp3,Duet,273.03,4:33,5.46,44100,supplied WAV,-0.09,-13.35,0
