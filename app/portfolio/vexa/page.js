@@ -1,6 +1,13 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 export const metadata = {title:"VEXA — Before the Lights | AI Production Case Study",description:"AI-assisted original music and visual campaign directed by Reno Kagenami: ChatGPT lyric and image work, Mureka AI music production."};
+const murekaStylePrompt = "Dark melodic Brooklyn drill, mature deep soulful female contralto, smoky rich lower register, warm chest resonance, fully sung melodic drill flow, gritty emotional vocals, rhythmic pitch-driven delivery, haunting female harmonies, aggressive soaring vocal melodies, expressive melisma, sliding distorted 808s, hard syncopated drill drums, rapid hi-hat patterns, dark Rhodes piano, eerie bell textures, atmospheric synths, cinematic bass drops, sparse menacing production, powerful melodic hooks. Cold Brooklyn drill energy with emotional R&B undertones. Intimate low-register verses rising into wide sustained melodic choruses. Every lyric sung with clear pitch and expressive melody. No male vocals, spoken rap, talking, chanting, monotone delivery, or bright youthful pop vocals.";
+const audioDirection = [
+  ["Vocal identity", "Mature, deep female contralto; smoky lower register, chest resonance, and emotional grit."],
+  ["Melodic delivery", "Fully sung drill phrasing, expressive melisma, low intimate verses, and sustained soaring choruses."],
+  ["Instrumental direction", "Sliding distorted 808s, syncopated drill drums, rapid hats, Rhodes piano, eerie bells, atmospheric synths, and bass drops."],
+  ["Hard exclusions", "No male vocal, spoken rap, talking, chanting, monotone delivery, or bright youthful pop tone."],
+];
 const workflow=[
 ["01","Concept and lyrics","Kahlil established the song direction and collaborated with ChatGPT on lyrics and refinement."],
 ["02","Music generation","A specific Mureka AI style format guided the generated music and virtual vocal performance."],
@@ -32,10 +39,17 @@ return <div className={styles.page}>
 <p className={styles.eyebrow}>PRODUCTION WORKFLOW</p><h2>Direction. Generation. Review.</h2>
 <div className={styles.steps}>{workflow.map(([num,title,detail])=><article key={num}><small>{num}</small><h3>{title}</h3><p>{detail}</p></article>)}</div>
 </div></section>
+<section className={styles.section}><div className={styles.shell}>
+<p className={styles.eyebrow}>ACTUAL PRODUCTION INPUT / MUREKA AI</p><h2>The style specification.</h2>
+<p className={styles.lead}>This is the exact text supplied by the creator to describe VEXA's desired musical and vocal direction in Mureka AI. It documents a production decision, not a claim that the model obeyed every instruction perfectly.</p>
+<blockquote className={styles.promptBlock}>{murekaStylePrompt}</blockquote>
+<div className={styles.promptGrid}>{audioDirection.map(([title,description])=><article key={title}><h3>{title}</h3><p>{description}</p></article>)}</div>
+<p className={styles.notice}>The specified dark Rhodes piano is a deliberate choice in this individual song prompt; it should not be generalized as a requirement for every VEXA track. Mureka AI generated the music and synthetic singing; no human vocal performance is claimed.</p>
+</div></section>
 <section className={[styles.section,styles.alt].join(" ")}><div className={styles.shell}>
 <p className={styles.eyebrow}>IMAGE + AUDIO EVALUATION</p><h2>Review criteria.</h2>
 <p className={styles.lead}>Review the anatomical right icy-blue eye and left amber-gold eye (accounting for viewpoint), facial proportions, wardrobe and environment continuity, hands and jewelry, frame crops, and audible production quality.</p>
-<p className={styles.notice}>Criteria are documented, but scores and quantitative performance metrics have not been invented. The next version will add real before-and-after evidence, exact style-prompt documentation, approved public media embeds, and completed motion examples.</p>
+<p className={styles.notice}>Criteria are documented, but scores and quantitative performance metrics have not been invented. The exact music style prompt is recorded above. The next version will add real before-and-after evidence, approved public media embeds, and completed motion examples.</p>
 <Link href="/contact" className={styles.link}>Contact the creator ↗</Link>
 </div></section>
 </div>;
