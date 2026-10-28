@@ -43,7 +43,7 @@ export default function TerrorInResonancePage() {
             </div>
             <AlbumCover />
           </div>
-          <p className={styles.disclosure}>The official artwork and eight audio tracks are now included in the development website. The six-image promotional campaign is prepared for upload. This case study distinguishes finished work and measured file properties from future production plans.</p>
+          <p className={styles.disclosure}>The official cover, eight audio tracks, and six-image promotional gallery have been uploaded to the development branch. This case study distinguishes finished creative assets and verified file properties from future production plans.</p>
         </div>
       </header>
       <section className={styles.section}>
@@ -85,7 +85,7 @@ export default function TerrorInResonancePage() {
           </div>
           <div className={styles.deliverables}>
             <article><span>01</span><h3>Album sound</h3><p>Eight original tracks verified, with prepared streaming copies and measured runtimes. Per-song production prompts can be added as they are documented.</p><small>Eight audio tracks uploaded to the preview branch</small></article>
-            <article><span>02</span><h3>Visual campaign</h3><p>Official cover and six selected promotional stills follow one visual progression: hidden passage, escape, cathedral nave, marble stairs, and lectern.</p><small>Cover uploaded · six-still gallery staged</small></article>
+            <article><span>02</span><h3>Visual campaign</h3><p>Official cover and six selected promotional stills follow one visual progression: hidden passage, escape, cathedral nave, marble stairs, and lectern.</p><small>Official cover and six promotional stills uploaded</small></article>
             <article><span>03</span><h3>Creative QA</h3><p>Documented technical file checks, plus planned qualitative review of visual consistency, vocal casting, motif continuity, and mix clarity.</p><small>Technical baseline captured / listening rubric next</small></article>
           </div>
         </div>
