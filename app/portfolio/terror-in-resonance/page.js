@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import AlbumPlayer, { AlbumCover } from "./AlbumPlayer";
+import PromoGallery from "./PromoGallery";
 
 export const metadata = {
   title: "Terror in Resonance — AI Album Case Study",
@@ -42,7 +43,7 @@ export default function TerrorInResonancePage() {
             </div>
             <AlbumCover />
           </div>
-          <p className={styles.disclosure}>The official album cover and eight original WAV tracks are supplied and verified. A browser-friendly media package has been prepared; playback activates when those assets are uploaded to this preview branch. No unverified production or promotional performance metrics are claimed.</p>
+          <p className={styles.disclosure}>The official artwork and eight audio tracks are now included in the development website. The six-image promotional campaign is prepared for upload. This case study distinguishes finished work and measured file properties from future production plans.</p>
         </div>
       </header>
       <section className={styles.section}>
@@ -65,16 +66,26 @@ export default function TerrorInResonancePage() {
           <p className={styles.hint}>Technical verification: all eight WAV files are PCM 16-bit, stereo, 44.1 kHz. Source sample peaks measured between −0.16 and −0.09 dBFS. These data establish file properties; they do not constitute a mastering verdict or subjective listening score.</p>
         </div>
       </section>
-      <section className={styles.section}>
+      <section className={styles.section} id="campaign-visuals">
+        <div className={styles.shell}>
+          <p className={styles.kicker}>PROMOTIONAL VISUALS / SIX-FRAME CAMPAIGN</p>
+          <div className={styles.split}>
+            <h2>Behind the walls. <br/>Into the cathedral.</h2>
+            <p>A connected series of widescreen stills moves from VEXA's confinement in a dark wooden cavity toward the cold architecture of an abandoned cathedral. Each image explores a different camera position, spatial scale, and emotional beat.</p>
+          </div>
+          <PromoGallery />
+        </div>
+      </section>
+      <section className={[styles.section, styles.dark].join(" ")}>
         <div className={styles.shell}>
           <p className={styles.kicker}>CREATIVE-OPERATIONS CASE STUDY</p>
           <div className={styles.split}>
             <h2>From sound to image.</h2>
-            <p>The album's original audio masters and official artwork are now documented. The next case-study expansion will add your selected promotional portraits, wardrobe references, track-specific production prompts, and real comparative quality checks.</p>
+            <p>The original audio masters, streaming previews, official cover, and six selected promotional stills are documented. The next additions will focus on track-specific production prompts, decision logs, and real comparative quality reviews.</p>
           </div>
           <div className={styles.deliverables}>
-            <article><span>01</span><h3>Album sound</h3><p>Eight original tracks verified, with prepared streaming copies and measured runtimes. Per-song production prompts can be added as they are documented.</p><small>Media package ready / branch upload pending</small></article>
-            <article><span>02</span><h3>Visual campaign</h3><p>Official album cover supplied. Promotional portraits and selected approved outfits will form the next gallery.</p><small>Official cover ready / promotional visuals next</small></article>
+            <article><span>01</span><h3>Album sound</h3><p>Eight original tracks verified, with prepared streaming copies and measured runtimes. Per-song production prompts can be added as they are documented.</p><small>Eight audio tracks uploaded to the preview branch</small></article>
+            <article><span>02</span><h3>Visual campaign</h3><p>Official cover and six selected promotional stills follow one visual progression: hidden passage, escape, cathedral nave, marble stairs, and lectern.</p><small>Cover uploaded · six-still gallery staged</small></article>
             <article><span>03</span><h3>Creative QA</h3><p>Documented technical file checks, plus planned qualitative review of visual consistency, vocal casting, motif continuity, and mix clarity.</p><small>Technical baseline captured / listening rubric next</small></article>
           </div>
         </div>
