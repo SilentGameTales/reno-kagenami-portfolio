@@ -61,6 +61,12 @@ return <div className={styles.page}>
 <article><small>03 / LISTENING RUBRIC</small><h3>Human review still needed</h3><p>Evaluate contralto character, sung-versus-spoken delivery, chorus lift, groove and bass clarity, and the absence of excluded vocal styles. No listening scores or repeatability results are claimed yet.</p></article>
 </div>
 <p className={styles.notice}>Evidence status: original audio and selected visuals supplied. Image-consistency observations are qualitative; the audio checks above are objective file measurements. A finished video, formal comparative tests, and verified listener scores are not yet part of this case study.</p>
+<div style={{border:"1px solid rgba(242,194,138,.3)",padding:"28px",marginTop:"48px",background:"rgba(242,194,138,.035)"}}>
+<p className={styles.eyebrow}>NEXT CASE STUDY / FULL ALBUM DEVELOPMENT</p>
+<h3>Terror in Resonance</h3>
+<p>Explore the established eight-track horror narrative, voice-casting sequence, sonic motifs and gothic visual direction. Album audio and final cover-media integration are documented as upcoming steps.</p>
+<Link href="/portfolio/terror-in-resonance" className={styles.link}>Explore the Terror in Resonance album study ↗</Link>
+</div>
 <Link href="/contact" className={styles.link}>Contact the creator ↗</Link>
 </div></section>
 </div>;
