@@ -1,0 +1,62 @@
+[
+  {
+    "order": 1,
+    "filename": "01_wall_first_contact.webp",
+    "title": "Inside the Walls",
+    "description": "VEXA lying in a narrow cobwebbed wooden cavity, looking directly at the viewer",
+    "width": 1600,
+    "height": 900,
+    "bytes": 83308,
+    "sha256": "4bf26ec1a0c3ca9874c21c4ece439e9c0aea569121f0a0fad1aa4e95f078d191"
+  },
+  {
+    "order": 2,
+    "filename": "02_wall_hidden_observer.webp",
+    "title": "The Hidden Observer",
+    "description": "A close overhead view of VEXA inside a cramped, dark wooden space",
+    "width": 1600,
+    "height": 900,
+    "bytes": 82018,
+    "sha256": "6b4c8b869463dacf096bae4455e22816072fc72b364f3c3d5853f9550fcf912e"
+  },
+  {
+    "order": 3,
+    "filename": "03_wall_reaching_out.webp",
+    "title": "Reaching Through",
+    "description": "VEXA reaching toward the viewer through a dusty passage framed by timber and cobwebs",
+    "width": 1600,
+    "height": 900,
+    "bytes": 77832,
+    "sha256": "ebe7796ee041163d604dbb2b7db8a84c543edd08c9c1a5d3460aa37babcdec37"
+  },
+  {
+    "order": 4,
+    "filename": "04_cathedral_nave.webp",
+    "title": "The Abandoned Nave",
+    "description": "Back view of VEXA staggering into a cold, candlelit abandoned Gothic cathedral",
+    "width": 1600,
+    "height": 900,
+    "bytes": 148964,
+    "sha256": "f908c78edfe7bd8a78f683d7b6b9c5b49c7452eb3ef0f1889714233ee8b15cb6"
+  },
+  {
+    "order": 5,
+    "filename": "05_stairwell_ascent.webp",
+    "title": "The Stairwell",
+    "description": "VEXA climbing the worn marble staircase in a blue-lit Gothic cathedral",
+    "width": 1600,
+    "height": 900,
+    "bytes": 122154,
+    "sha256": "b77559a73a59ac0fe95d5bce1e7929f4cf7c495e0fbb0094db905ed2a0fb63b9"
+  },
+  {
+    "order": 6,
+    "filename": "06_lectern_reckoning.webp",
+    "title": "At the Lectern",
+    "description": "Side profile of VEXA leaning against the carved lectern in a candlelit cathedral",
+    "width": 1600,
+    "height": 900,
+    "bytes": 99006,
+    "sha256": "7668d85fb0c5f5549ae28d2a4141f70c8dbbb88a78865ff25da99dcb7ad9fced"
+  }
+]
