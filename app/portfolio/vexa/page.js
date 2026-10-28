@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import BeforeLightsMedia from "./BeforeLightsMedia";
 export const metadata = {title:"VEXA — Before the Lights | AI Production Case Study",description:"AI-assisted original music and visual campaign directed by Reno Kagenami: ChatGPT lyric and image work, Mureka AI music production."};
 const murekaStylePrompt = "Dark melodic Brooklyn drill, mature deep soulful female contralto, smoky rich lower register, warm chest resonance, fully sung melodic drill flow, gritty emotional vocals, rhythmic pitch-driven delivery, haunting female harmonies, aggressive soaring vocal melodies, expressive melisma, sliding distorted 808s, hard syncopated drill drums, rapid hi-hat patterns, dark Rhodes piano, eerie bell textures, atmospheric synths, cinematic bass drops, sparse menacing production, powerful melodic hooks. Cold Brooklyn drill energy with emotional R&B undertones. Intimate low-register verses rising into wide sustained melodic choruses. Every lyric sung with clear pitch and expressive melody. No male vocals, spoken rap, talking, chanting, monotone delivery, or bright youthful pop vocals.";
 const audioDirection = [
@@ -20,7 +21,12 @@ return <div className={styles.page}>
 <p className={styles.eyebrow}>CASE STUDY 01 / ORIGINAL VIRTUAL ARTIST</p>
 <h1>Before <em>the Lights.</em></h1>
 <p className={styles.lead}>An original music and visual campaign for VEXA, developed with human-directed storytelling, ChatGPT-assisted lyrics and imagery, and Mureka AI-generated music and vocals.</p>
-<p className={styles.notice}>Completed: finished song, official cover artwork, and eight supporting portraits. Media files remain in private review and are not yet published to this website. Animated video work is a planned deliverable, not a completed claim.</p>
+<p className={styles.notice}>Completed assets: one 4:03.71 original song, the official cover, and eight selected supporting portraits. The media panel checks whether files are available on the preview deployment. Animation remains a planned deliverable, not a completed claim.</p>
+</div></section>
+<section className={styles.section}><div className={styles.shell}>
+<p className={styles.eyebrow}>LISTEN + VIEW / SELECTED CAMPAIGN ASSETS</p>
+<h2>The finished song. The visual world.</h2>
+<BeforeLightsMedia />
 </div></section>
 <section className={styles.section}><div className={styles.shell}>
 <p className={styles.eyebrow}>CREDITS / TRANSPARENT ATTRIBUTION</p><h2>Who did what.</h2>
@@ -49,7 +55,12 @@ return <div className={styles.page}>
 <section className={[styles.section,styles.alt].join(" ")}><div className={styles.shell}>
 <p className={styles.eyebrow}>IMAGE + AUDIO EVALUATION</p><h2>Review criteria.</h2>
 <p className={styles.lead}>Review the anatomical right icy-blue eye and left amber-gold eye (accounting for viewpoint), facial proportions, wardrobe and environment continuity, hands and jewelry, frame crops, and audible production quality.</p>
-<p className={styles.notice}>Criteria are documented, but scores and quantitative performance metrics have not been invented. The exact music style prompt is recorded above. The next version will add real before-and-after evidence, approved public media embeds, and completed motion examples.</p>
+<div className={styles.cards}>
+<article><small>01 / AUDIO FILE CHECK</small><h3>Verified delivery data</h3><p>Final supplied WAV: 243.71 seconds, 44.1 kHz, stereo PCM. Automated volume scan found a sample peak near −0.1 dBFS. These checks establish format and level, not vocal style adherence.</p></article>
+<article><small>02 / VISUAL CONTINUITY</small><h3>Identity and environment</h3><p>The selected images consistently use short dark hair, differentiated blue and amber eyes when visible, rain-streaked glass, and warm candlelight. Facial proportions and fine accessories still require comparison between angles.</p></article>
+<article><small>03 / LISTENING RUBRIC</small><h3>Human review still needed</h3><p>Evaluate contralto character, sung-versus-spoken delivery, chorus lift, groove and bass clarity, and the absence of excluded vocal styles. No listening scores or repeatability results are claimed yet.</p></article>
+</div>
+<p className={styles.notice}>Evidence status: original audio and selected visuals supplied. Image-consistency observations are qualitative; the audio checks above are objective file measurements. A finished video, formal comparative tests, and verified listener scores are not yet part of this case study.</p>
 <Link href="/contact" className={styles.link}>Contact the creator ↗</Link>
 </div></section>
 </div>;
