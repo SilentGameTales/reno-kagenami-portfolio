@@ -1,0 +1,73 @@
+import Link from "next/link";
+import styles from "./page.module.css";
+import BeforeLightsMedia from "./BeforeLightsMedia";
+export const metadata = {title:"VEXA — Before the Lights | AI Production Case Study",description:"AI-assisted original music and visual campaign directed by Reno Kagenami: ChatGPT lyric and image work, Mureka AI music production."};
+const murekaStylePrompt = "Dark melodic Brooklyn drill, mature deep soulful female contralto, smoky rich lower register, warm chest resonance, fully sung melodic drill flow, gritty emotional vocals, rhythmic pitch-driven delivery, haunting female harmonies, aggressive soaring vocal melodies, expressive melisma, sliding distorted 808s, hard syncopated drill drums, rapid hi-hat patterns, dark Rhodes piano, eerie bell textures, atmospheric synths, cinematic bass drops, sparse menacing production, powerful melodic hooks. Cold Brooklyn drill energy with emotional R&B undertones. Intimate low-register verses rising into wide sustained melodic choruses. Every lyric sung with clear pitch and expressive melody. No male vocals, spoken rap, talking, chanting, monotone delivery, or bright youthful pop vocals.";
+const audioDirection = [
+  ["Vocal identity", "Mature, deep female contralto; smoky lower register, chest resonance, and emotional grit."],
+  ["Melodic delivery", "Fully sung drill phrasing, expressive melisma, low intimate verses, and sustained soaring choruses."],
+  ["Instrumental direction", "Sliding distorted 808s, syncopated drill drums, rapid hats, Rhodes piano, eerie bells, atmospheric synths, and bass drops."],
+  ["Hard exclusions", "No male vocal, spoken rap, talking, chanting, monotone delivery, or bright youthful pop tone."],
+];
+const workflow=[
+["01","Concept and lyrics","Kahlil established the song direction and collaborated with ChatGPT on lyrics and refinement."],
+["02","Music generation","A specific Mureka AI style format guided the generated music and virtual vocal performance."],
+["03","Visual development","ChatGPT assisted with the cover and eight supporting portraits in a rain-soaked apartment setting."],
+["04","Quality review","Image selection centered on character identity, heterochromia, atmosphere, framing, and technical consistency."]];
+export default function VexaCaseStudy(){
+return <div className={styles.page}>
+<section className={styles.hero}><div className={styles.shell}>
+<Link href="/portfolio" className={styles.back}>← Back to AI Portfolio</Link>
+<p className={styles.eyebrow}>CASE STUDY 01 / ORIGINAL VIRTUAL ARTIST</p>
+<h1>Before <em>the Lights.</em></h1>
+<p className={styles.lead}>An original music and visual campaign for VEXA, developed with human-directed storytelling, ChatGPT-assisted lyrics and imagery, and Mureka AI-generated music and vocals.</p>
+<p className={styles.notice}>Completed assets: one 4:03.71 original song, the official cover, and eight selected supporting portraits. The media panel checks whether files are available on the preview deployment. Animation remains a planned deliverable, not a completed claim.</p>
+</div></section>
+<section className={styles.section}><div className={styles.shell}>
+<p className={styles.eyebrow}>LISTEN + VIEW / SELECTED CAMPAIGN ASSETS</p>
+<h2>The finished song. The visual world.</h2>
+<BeforeLightsMedia />
+</div></section>
+<section className={styles.section}><div className={styles.shell}>
+<p className={styles.eyebrow}>CREDITS / TRANSPARENT ATTRIBUTION</p><h2>Who did what.</h2>
+<div className={styles.cards}>
+<article><small>CREATIVE DIRECTION</small><h3>Reno Kagenami / Kahlil</h3><p>Concept, artist identity, musical style specification, asset selection and iterative creative review.</p></article>
+<article><small>LYRICS + ARTWORK</small><h3>ChatGPT</h3><p>AI-assisted lyric development and visual generation for the cover and supporting stills.</p></article>
+<article><small>MUSIC + VOCAL GENERATION</small><h3>Mureka AI</h3><p>The finished track and VEXA's virtual singing performance were generated from a specified style format.</p></article>
+</div>
+</div></section>
+<section className={[styles.section,styles.alt].join(" ")}><div className={styles.shell}>
+<p className={styles.eyebrow}>CREATIVE CHALLENGE</p><h2>One recognizable artist across many angles.</h2>
+<p className={styles.lead}>The campaign is set inside a dim apartment overlooking a rain-soaked city. Warm candlelight contrasts with the cold windows while front, side and back compositions maintain VEXA's recognizable face, short black bob and distinctive blue-and-amber eyes.</p>
+<Link href="/music" className={styles.link}>Explore the existing VEXA archive ↗</Link>
+</div></section>
+<section className={styles.section}><div className={styles.shell}>
+<p className={styles.eyebrow}>PRODUCTION WORKFLOW</p><h2>Direction. Generation. Review.</h2>
+<div className={styles.steps}>{workflow.map(([num,title,detail])=><article key={num}><small>{num}</small><h3>{title}</h3><p>{detail}</p></article>)}</div>
+</div></section>
+<section className={styles.section}><div className={styles.shell}>
+<p className={styles.eyebrow}>ACTUAL PRODUCTION INPUT / MUREKA AI</p><h2>The style specification.</h2>
+<p className={styles.lead}>This is the exact text supplied by the creator to describe VEXA's desired musical and vocal direction in Mureka AI. It documents a production decision, not a claim that the model obeyed every instruction perfectly.</p>
+<blockquote className={styles.promptBlock}>{murekaStylePrompt}</blockquote>
+<div className={styles.promptGrid}>{audioDirection.map(([title,description])=><article key={title}><h3>{title}</h3><p>{description}</p></article>)}</div>
+<p className={styles.notice}>The specified dark Rhodes piano is a deliberate choice in this individual song prompt; it should not be generalized as a requirement for every VEXA track. Mureka AI generated the music and synthetic singing; no human vocal performance is claimed.</p>
+</div></section>
+<section className={[styles.section,styles.alt].join(" ")}><div className={styles.shell}>
+<p className={styles.eyebrow}>IMAGE + AUDIO EVALUATION</p><h2>Review criteria.</h2>
+<p className={styles.lead}>Review the anatomical right icy-blue eye and left amber-gold eye (accounting for viewpoint), facial proportions, wardrobe and environment continuity, hands and jewelry, frame crops, and audible production quality.</p>
+<div className={styles.cards}>
+<article><small>01 / AUDIO FILE CHECK</small><h3>Verified delivery data</h3><p>Final supplied WAV: 243.71 seconds, 44.1 kHz, stereo PCM. Automated volume scan found a sample peak near −0.1 dBFS. These checks establish format and level, not vocal style adherence.</p></article>
+<article><small>02 / VISUAL CONTINUITY</small><h3>Identity and environment</h3><p>The selected images consistently use short dark hair, differentiated blue and amber eyes when visible, rain-streaked glass, and warm candlelight. Facial proportions and fine accessories still require comparison between angles.</p></article>
+<article><small>03 / LISTENING RUBRIC</small><h3>Human review still needed</h3><p>Evaluate contralto character, sung-versus-spoken delivery, chorus lift, groove and bass clarity, and the absence of excluded vocal styles. No listening scores or repeatability results are claimed yet.</p></article>
+</div>
+<p className={styles.notice}>Evidence status: original audio and selected visuals supplied. Image-consistency observations are qualitative; the audio checks above are objective file measurements. A finished video, formal comparative tests, and verified listener scores are not yet part of this case study.</p>
+<div style={{border:"1px solid rgba(242,194,138,.3)",padding:"28px",marginTop:"48px",background:"rgba(242,194,138,.035)"}}>
+<p className={styles.eyebrow}>NEXT CASE STUDY / FULL ALBUM DEVELOPMENT</p>
+<h3>Terror in Resonance</h3>
+<p>Explore the established eight-track horror narrative, voice-casting sequence, sonic motifs and gothic visual direction. Album audio and final cover-media integration are documented as upcoming steps.</p>
+<Link href="/portfolio/terror-in-resonance" className={styles.link}>Explore the Terror in Resonance album study ↗</Link>
+</div>
+<Link href="/contact" className={styles.link}>Contact the creator ↗</Link>
+</div></section>
+</div>;
+}
