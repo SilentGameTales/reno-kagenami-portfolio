@@ -17,9 +17,9 @@ const projects = [
     description:
       "An original virtual artist developed through character direction, music concepts, visual identity systems, cover campaigns, and performance concepts. The work demonstrates a consistent creative vision across multiple formats.",
     contributions: ["Creative direction", "Character consistency", "Music and visual concepts"],
-    status: "Creative archive available; production reel in development",
-    href: "/music",
-    linkText: "Explore VEXA",
+    status: "Before the Lights song and campaign stills completed; video reel in development",
+    href: "/portfolio/vexa",
+    linkText: "View VEXA case study",
     image: "/images/vexa-stage.png",
     tone: "silver",
   },
