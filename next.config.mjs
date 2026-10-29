@@ -18,6 +18,15 @@ const cspReportOnly = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/characters/reno-old-man',
+        destination: '/characters/kagane',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ['image/avif', 'image/webp']
   },
