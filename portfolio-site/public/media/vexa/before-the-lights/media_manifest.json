@@ -1,0 +1,44 @@
+{
+  "project": "Before the Lights",
+  "image_count": 8,
+  "video": {
+    "filename": "before-the-lights-preview.mp4",
+    "duration_seconds": 30,
+    "resolution": "1920x1080"
+  },
+  "target_dir": "portfolio-site/public/media/vexa/before-the-lights",
+  "files": [
+    {
+      "filename": "01_wall_lean.webp",
+      "caption": "Wall-side portrait"
+    },
+    {
+      "filename": "02_floor_candles.webp",
+      "caption": "Candlelit floor"
+    },
+    {
+      "filename": "03_hallway_walk.webp",
+      "caption": "Hallway walk"
+    },
+    {
+      "filename": "04_cafe_window.webp",
+      "caption": "Rainy caf\u00e9 window"
+    },
+    {
+      "filename": "05_cafe_coffee_close.webp",
+      "caption": "Coffee contemplation"
+    },
+    {
+      "filename": "06_cafe_reflective.webp",
+      "caption": "Caf\u00e9 reflection"
+    },
+    {
+      "filename": "07_rain_street_front.webp",
+      "caption": "Rainy street portrait"
+    },
+    {
+      "filename": "08_crosswalk_back.webp",
+      "caption": "Crosswalk departure"
+    }
+  ]
+}
