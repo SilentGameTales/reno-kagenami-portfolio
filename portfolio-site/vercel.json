@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "framework": null,
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/portfolio",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/vexa",
+      "destination": "/vexa",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/terror-in-resonance",
+      "destination": "/terror-in-resonance",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/vexa",
+      "destination": "/vexa/index.html"
+    },
+    {
+      "source": "/terror-in-resonance",
+      "destination": "/terror-in-resonance/index.html"
+    },
+    {
+      "source": "/process",
+      "destination": "/process/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    }
+  ]
+}
